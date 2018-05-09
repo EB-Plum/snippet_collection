@@ -14,4 +14,4 @@ known, unknown = parser.parse_known_args()              ## unknown arguments may
 
 args = vars(known)         ## can use 'args' as dictionary
 print(args['dir'])         ## '/home/example'
-pritn(args['debug'])       ## True
+print(args['debug'])       ## True
