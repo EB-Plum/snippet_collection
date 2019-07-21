@@ -19,3 +19,16 @@ document.addEventListener('touchmove', function prevent_pinchzoom(ev){
 document.addEventListener('contextmenu', function prevent_contextmenu(ev){
   event.preventDefault();
 }, {passive: false});
+
+
+
+// BETTER USING CSS
+// https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action
+/*
+
+  * {
+    touch-action: pan-y;
+  }
+  
+*/
+  
