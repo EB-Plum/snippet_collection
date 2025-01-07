@@ -30,12 +30,12 @@ function calcTargetScrollTopPosition(targetElem, scrollElem, offsetTop = 0, offs
     // OUT-ABOVE. 타겟이 스크롤 상자보다 완전히 위에 있는 경우
     if (targetRect.bottom <= scrollRect.top) {
       // 타겟의 위쪽이 스크롤 상자의 위쪽에 맞춰지게 하기
-      return currentScrollPos - (scrollRect.top - targetRect.top) + offsetTop
+      return currentScrollPos - (scrollRect.top - targetRect.top) - offsetTop
     }
     // PARTIAL-UPPER. 타겟의 아래부분이 스크롤 상자 상단에 보이는 경우
     if (targetRect.bottom > scrollRect.top && targetRect.bottom < scrollRect.bottom) {
       // 타겟의 위쪽이 스크롤 상자의 위쪽에 맞춰지게 하기
-      return currentScrollPos - (scrollRect.top - targetRect.top) + offsetTop
+      return currentScrollPos - (scrollRect.top - targetRect.top) - offsetTop
     }
 
     // IN-FULL. 스크롤 상자 안에 타겟이 완전히 보이는 경우
@@ -46,13 +46,13 @@ function calcTargetScrollTopPosition(targetElem, scrollElem, offsetTop = 0, offs
     // PARTIAL-LOWER. 타겟의 윗부분이 스크롤 상자 하단에 보이는 경우
     if (targetRect.top > scrollRect.top && targetRect.top < scrollRect.bottom) {
       // 타겟의 위쪽이 스크롤 상자의 위쪽에 맞춰지게
-      return currentScrollPos + (targetRect.top - scrollRect.top) + offsetTop
+      return currentScrollPos + (targetRect.top - scrollRect.top) - offsetTop
     }
 
     // OUT-UNDER. 타겟이 스크롤 상자보다 완전히 아래에 있는 경우
     if (targetRect.top > scrollRect.bottom) {
       // 타겟의 위쪽이 스크롤 상자의 위쪽에 맞춰지게
-      return currentScrollPos + (targetRect.top - scrollRect.top) + offsetTop
+      return currentScrollPos + (targetRect.top - scrollRect.top) - offsetTop
     }
   }
   // SMALL. 타겟이 스크롤 상자보다 작은 경우
@@ -60,12 +60,12 @@ function calcTargetScrollTopPosition(targetElem, scrollElem, offsetTop = 0, offs
     // OUT-ABOVE. 타겟이 스크롤 상자보다 완전히 위에 있는 경우
     if (targetRect.bottom <= scrollRect.top) {
       // 타겟의 위쪽이 스크롤 상자의 위쪽에 맞춰지게
-      return currentScrollPos - (scrollRect.top - targetRect.top) + offsetTop
+      return currentScrollPos - (scrollRect.top - targetRect.top) - offsetTop
     }
     // PARTIAL-UPPER. 타겟의 아래부분이 스크롤 상자 상단에 보이는 경우
     if (targetRect.bottom > scrollRect.top && targetRect.top < scrollRect.top) {
       // 타겟의 위쪽이 스크롤 상자의 위쪽에 맞춰지게
-      return currentScrollPos - (scrollRect.top - targetRect.top) + offsetTop
+      return currentScrollPos - (scrollRect.top - targetRect.top) - offsetTop
     }
     // IN-FULL. 스크롤 상자 안에 타겟이 완전히 보이는 경우
     if (targetRect.top >= scrollRect.top && targetRect.bottom <= scrollRect.bottom) {
